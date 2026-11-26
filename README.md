@@ -1,6 +1,6 @@
 # Imaginary quadratic fields and orders of class-group exponent seven
 
-<!-- Zenodo DOI badge: insert the badge for this repository when its DOI has been assigned. -->
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.24556265.svg)](https://doi.org/10.5281/zenodo.24556265)
 
 Under Dirichlet GRH, exactly **33 imaginary quadratic fields** have ideal class group of exponent seven. The 33 maximal orders and seven nonmaximal orders give **40 imaginary quadratic orders** of Picard exponent seven. The two groups of type $C_7^2$ have discriminants $-63499$ and $-118843$. The other 38 groups are cyclic of order seven. The largest absolute discriminant is $118843$.
 
