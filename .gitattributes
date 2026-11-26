@@ -1,0 +1,5 @@
+# Preserve the exact archived bytes, including the original research logs,
+# when cloning to systems with different Git line-ending preferences.
+* -text
+*.pdf binary
+*.sh text eol=lf

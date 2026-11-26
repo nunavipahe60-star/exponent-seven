@@ -1,0 +1,14 @@
+497 primes, 1622545300159089 positive trace positions, 5 retained
+GPU seconds recorded by launches: 129.826
+p=3209 x=2044007472677 witness=263 F_mod_witness=51
+p=3853 x=3871258885871 witness=271 F_mod_witness=2
+p=4129 x=5310890329408 witness=257 F_mod_witness=239
+p=4133 x=7753344152825 witness=269 F_mod_witness=24
+p=4561 x=3028955847366 witness=257 F_mod_witness=42
+497 primes, 1622545300159089 positive trace positions, 5 retained
+GPU seconds recorded by launches: 84.311
+p=3209 x=2044007472677 witness=263 F_mod_witness=51
+p=3853 x=3871258885871 witness=271 F_mod_witness=2
+p=4129 x=5310890329408 witness=257 F_mod_witness=239
+p=4133 x=7753344152825 witness=269 F_mod_witness=24
+p=4561 x=3028955847366 witness=257 F_mod_witness=42

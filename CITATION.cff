@@ -1,0 +1,24 @@
+cff-version: 1.2.0
+message: "Please cite this work using the release you consulted."
+type: software
+title: "Class-group exponent seven in imaginary quadratic fields and orders"
+authors:
+  - family-names: "nunavipahe60-star"
+    website: "https://github.com/nunavipahe60-star"
+  - name: "Claude"
+  - name: "Gemini"
+  - name: "Codex"
+license: Apache-2.0
+abstract: >-
+  A computer-assisted classification of the 33 imaginary quadratic fields and
+  40 imaginary quadratic orders of class-group exponent seven under Dirichlet
+  GRH. The release contains the proof, Fourier certificates, two trace-sieve
+  implementations, an independent two-prime divisor search, and the verified
+  table of order discriminants. The repository author coordinated the work
+  with Claude, Gemini and Codex. The claims ledger records the review status.
+keywords:
+  - imaginary quadratic fields
+  - quadratic orders
+  - class groups
+  - Dirichlet L-functions
+  - computational number theory

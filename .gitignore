@@ -1,0 +1,24 @@
+# Python and virtual environments
+__pycache__/
+*.py[cod]
+.venv/
+.pytest_cache/
+
+# TeX build products
+*.aux
+*.log
+*.out
+*.toc
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+
+# The four archived research logs are part of the evidence.
+!logs/cpu-divisors.log
+!logs/trace-primary.log
+!logs/trace-crosscheck.log
+!logs/trace-short.log
+
+# Local desktop files
+.DS_Store
+Thumbs.db

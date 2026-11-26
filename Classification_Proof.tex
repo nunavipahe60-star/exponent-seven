@@ -1,0 +1,355 @@
+\documentclass[11pt,letterpaper]{article}
+\usepackage[margin=0.87in,top=0.78in,bottom=0.85in]{geometry}
+\usepackage{amsmath,amssymb,booktabs}
+\usepackage[hidelinks]{hyperref}
+\hypersetup{pdftitle={Class-group exponent seven in imaginary quadratic fields and orders},
+  pdfauthor={nunavipahe60-star},pdfsubject={A classification under Dirichlet GRH}}
+\pdfinfoomitdate=1
+\pdfsuppressptexinfo=15
+\pdftrailerid{}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{4.5pt plus 0.4pt minus 0.4pt}
+\setlength{\emergencystretch}{1.5em}
+\newcommand{\file}[1]{\texttt{\detokenize{#1}}}
+\newcommand{\Cl}{\operatorname{Cl}}
+\newcommand{\Pic}{\operatorname{Pic}}
+\newcommand{\F}{\mathbb F}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\sect}[1]{\section*{#1}}
+\newcommand{\arxivref}[1]{\href{https://arxiv.org/abs/#1}{arXiv:#1}}
+\begin{document}
+\begin{center}
+{\Large\bfseries Class-group exponent seven in imaginary quadratic\\[2pt]
+fields and orders}\\[8pt]
+{\large nunavipahe60-star}\\[3pt]
+26 November 2026
+\end{center}
+
+\textbf{Abstract.}
+Assuming Dirichlet GRH, we determine all imaginary quadratic fields and orders
+whose class group has exponent seven. An explicit formula for the odd quadratic
+character bounds the least split prime by \(4597\). A finite trace sieve then
+excludes the entire outstanding discriminant interval. A second computation
+eliminates the discriminant between two norm equations and exhausts the
+resulting divisors on a CPU.
+
+\sect{1. Classification and reduction to prime discriminants}
+\textbf{Theorem.} Under Dirichlet GRH, exactly \(33\) imaginary quadratic fields
+have ideal class group of exponent seven. Exactly \(40\) imaginary quadratic
+orders, including those \(33\) maximal orders, have proper Picard group of
+exponent seven. The largest absolute discriminant is \(118843\). The two
+discriminants \(-63499,-118843\) give \(C_7^2\), and the other \(38\) give \(C_7\).
+
+Elsenhans, Kl\"uners and Nicolae (EKN) classified the fields through
+\(L=3.1\cdot10^{20}\) and gave the conditional upper bound
+\(Q_0=3.9\cdot10^{30}\) \cite[Theorems 1, 3 and Tables 1--2]{EKN}.
+Aiken, Ross, Shvydkoy and Xue (ARSX) reduce completeness of their Table~A.7
+to excluding fundamental discriminants in this interval
+\cite[Theorem 1.3(6)]{ARSX}. We use Dirichlet GRH throughout. In particular,
+the quadratic-field zeta functions needed at the upper endpoint factor as
+\(\zeta(s)L(s,\chi_D)\).
+
+Suppose a field of exponent seven with fundamental discriminant \(D\) lies
+in the gap. Its class group is \(C_7^r\), so its \(2\)-rank is zero. By genus theory
+\(D\) has one prime-discriminant factor. The even possibilities \(-4,-8\)
+lie below \(L\). Hence \(D=-q\) with \(q\equiv3\bmod4\) prime and \(L<q\le Q_0\).
+If \(p\) splits, a prime ideal \(\mathfrak p\mid p\) satisfies
+\(\mathfrak p^7=((x+y\sqrt{-q})/2)\). Its norm gives
+\begin{equation}
+ 4p^7=x^2+qy^2,\qquad x,y\ge1,\qquad x\equiv y\pmod2 .
+ \label{eq:norm}
+\end{equation}
+Indeed \(y=0\) would make \(p^7\) a square, and \(x=0\) would force
+\(q\mid4p^7\). Absolute values give the indicated signs. Thus \(q<4p^7\).
+As \(4\cdot691^7<L<4\cdot701^7\), the least split prime \(p_1\) is at least
+\(701\). In particular 2 is inert, so \(-q\equiv5\bmod8\) and \(q\equiv3\bmod8\).
+At \(p_1=701\), \(4p_1^7<4L\) forces \(y=1\). The sieve in Section~4 includes
+this endpoint; its separate integer check already terminates at the prime \(137\).
+
+\textbf{Corollary for nonmaximal orders.}
+Extension of ideals maps the Picard group at conductor \(f\) onto the field
+class group. ARSX's conductor enumeration includes fields of exponent one
+and seven \cite[\S\S5--6]{ARSX}. Once the fundamental gap is excluded, its
+seven nonmaximal discriminants are
+\(-284,-343,-604,-892,-1372,-1852,-1948\).
+Together with the separate exponent-six result for Theorem~1.3(5) \cite{six},
+this completes Tables~A.1--A.8 for \(1\le E\le8\) under Dirichlet GRH.
+The exponent-seven proof uses only its own discriminant and prime bounds.
+
+\newpage
+\sect{2. A Fourier-positive certificate with wide support}
+Give \(g\) the signed integer values of a certificate on \(m\) equal cells
+of \([0,\log T)\), extending by zero. Put
+\[
+ f(u)=\frac{\int_{\mathbb R} g(t)g(t+u)\,dt}{\int_{\mathbb R}g(t)^2\,dt},
+ \qquad h(z)=\int_{\mathbb R}f(u)e^{izu}\,du.
+\]
+The even, piecewise linear \(f\) has \(f(0)=1\), \(|f|\le1\) and support
+\([-\log T,\log T]\). On the real axis \(h\) is a normalized squared
+Fourier modulus. Its entire extension decays as
+\(O_T((1+|\Re z|)^{-2})\) on bounded horizontal strips. For the primitive
+odd character \(\chi=\chi_{-q}\), the GRH zero sum is therefore nonnegative.
+The Guinand--Weil formula \cite[Lemma 9]{CMQR} gives
+\begin{equation}
+ 2\sum_{n<T}\frac{\Lambda(n)\chi(n)f(\log n)}{\sqrt n}
+ \le \log(q/\pi)+\psi(3/4)+J_f,\qquad
+ J_f=\int_0^\infty\frac{e^{-u/2}(1-f(u))}{\sinh u}\,du .
+ \label{eq:gw}
+\end{equation}
+Here \(\psi=\Gamma'/\Gamma\). Fourier inversion in the integral for
+\(\Re\psi(3/4+it/2)-\psi(3/4)\) yields the displayed weight.
+
+Let \(A_p,C_p\) denote the left-hand contribution of \(p\) when
+\(\chi(p)=-1,+1\), respectively. Thus \(A_p=2\log p\sum_{p^j<T}
+(-1)^j f(j\log p)p^{-j/2}\), while \(C_p\) uses \(+1\) for every power.
+Write \(B_p=A_p-C_p\) and \(b^+=\max(0,b)\). Since \(T<q\), every prime
+in the sum is unramified. With no split prime through \(S<T\), the left
+side is at least \(\sum_{p<T}A_p-\sum_{S<p<T}B_p^+\). For \(q\le Q\), a
+positive lower bound for
+\[
+ \sum_{p<T}A_p-\sum_{S<p<T}B_p^+-\log Q+\log\pi-\psi(3/4)-J_f
+\]
+therefore proves \(p_1\le S\). The \(256\)-cell certificates below use
+\(Q=Q_0\) in the first column and \(Q=4S_{\rm prev}^7\) thereafter.
+\begin{center}
+\begin{tabular}{@{}lrrrrrr@{}}
+\toprule
+Step&1&2&3&4&5&6\\
+\midrule
+Support \(T\)&20550&18893&14972&13616&13164&13073\\
+Bound \(S\)&4597&3643&3313&3203&3181&3169\\
+Margin, rounded down&.059634&.065825&.022050&.028155&.060095&.030033\\
+\bottomrule
+\end{tabular}
+\end{center}
+Thus \(Q_* =4\cdot3169^7=12\,838\,540\,801\,993\,873\,675\,201\,156\) is valid.
+To certify \(p_k\) for \(k\ge2\), fix the actual \(a=p_1\) within its earlier
+bound. Deduct \(B_a\), the largest \(k-2\) positive losses with \(a<p\le S\)
+(or all if fewer), and the tail above \(S\). Use \(q\le\min(Q,4a^7)\) and
+take the worst result over admissible \(a\). Selected bounds are shown below.
+\begin{center}
+\begin{tabular}{@{}lrrrrrrrr@{}}
+\toprule
+\(k\)&1&2&3&6&16&32&64&128\\
+\midrule
+All ranks&3169&3181&3187&3209&3301&3491&4943&8513\\
+Maximum over Section~3 bands&3089&3119&3121&3169&3257&3449&4639&6581\\
+\bottomrule
+\end{tabular}
+\end{center}
+The verifier encloses all prime powers and rational autocorrelation values
+by outward-rounded intervals. For the first cell of width \(d=\log(T)/m\),
+the integral is at most \(1-f(d)\). On each later cell it uses 32 subcells,
+multiplying the decreasing weight at the left endpoint by the exact integral
+of \(1-f\). Beyond \(\log T\) it adds \(4/(3T^{3/2}(1-T^{-2}))\).
+
+\newpage
+\sect{3. Short Euler sums and the possible ranks}
+For the independent two-prime computation we use the class number formula
+\(7^r=\sqrt q\,L(1,\chi)/\pi\). We record the finite inequalities from
+Lamzouri, Li and Soundararajan (LLS) \cite[\S5]{LLS} to specify both the
+truncation and the direction of the rounding. For \(X\ge100\), let
+\(t=\log X,\ s=\sqrt X\), and put
+\[
+ a_\epsilon=\frac{1/t-2\epsilon/(st^2)}{(1+\epsilon/s)^2},\quad
+ b_+=\frac{1+1/t}{(s+1)t},\quad
+ b_-=-\frac{1+(1+1/s)/t}{(s-1)t}\qquad(\epsilon=\pm1).
+\]
+Define the weighted prime-power sum
+\[
+ W_X(a)=\sum_{p^j\le X}\chi(p)^j
+ \left[\frac{1-j\log(p)/t}{j p^j}
+       +a\log p\bigl(p^{-j}-X^{-1}\bigr)\right].
+\]
+The LLS upper bound for \(\log L(1,\chi)\) is
+\(W_X(a_+)+b_+\log(q/\pi)\), and the lower bound is
+\(W_X(a_-)+b_-\log(q/\pi)\). All displayed summand weights are
+nonnegative at the cutoffs used here. Even powers have sign \(+1\), since
+\(q>X\). For the lower bound give all odd powers sign \(-1\). For the upper
+bound retain \(-1\) at the known inert primes and give other odd powers
+sign \(+1\). With \(q\le Q_*\), the conductor term is extremized at \(Q_*\)
+for each inequality. Taking \(X=2100,4000\), respectively, and allowing
+701 as the first possible split prime, outward rounding gives
+\[
+ 0.10919<L(1,\chi)<0.18666,\qquad
+ \text{in particular}\quad 0.1084<L(1,\chi)<0.1875 .
+\]
+Using \(L<q\le Q_*\) gives \(7^{10}<h(-q)<7^{14}\), so \(r\in\{11,12,13\}\).
+The initial certificate also permits the looser cap \(4\cdot4339^7\), with
+uniform bounds \(0.10840844<L(1,\chi)<0.18752520\).
+
+For each \(r\), a trial lower bound on \(q\) excludes further split primes
+by \eqref{eq:norm}. Reevaluate the LLS upper bound for \(h\) with those
+inert signs fixed. The lower and upper bounds for \(h\) are increasing in
+\(q\), since \(1/2+b_\pm>0\). Testing successive endpoints gives these
+closed outer intervals. Applying Section~2 within each gives the prime bounds.
+\begin{center}
+\begin{tabular}{@{}crrcrr@{}}
+\toprule
+\(r\)&lower \(q\)&upper \(q\)&range for \(p_1\)&upper \(p_2\)&\((y_{\max},v_{\max})\)\\
+\midrule
+11&\(1.259\cdot10^{21}\)&\(3.044\cdot10^{21}\)&853--2371&2389&\((36,37)\)\\
+12&\(7.873\cdot10^{22}\)&\(1.538\cdot10^{23}\)&1531--2713&2729&\((7,7)\)\\
+13&\(4.807\cdot10^{24}\)&\(7.743\cdot10^{24}\)&2767--3089&3119&\((1,1)\)\\
+\bottomrule
+\end{tabular}
+\end{center}
+\textbf{Relations among small prime classes.}
+In rank one, a trivial small prime class gives \(q\le4p_i\). Otherwise
+the second prime class equals the first to a power \(\pm1,\pm2,\pm3\).
+Orienting the ideals by conjugation yields a nonrational principal
+generator and \(q\le4p_1^3p_2\le404\,939\,719\,793\,716<L\).
+
+For high rank the abstract group alone cannot force a relation of signed
+degree at most six among 128 labels. Take \((1,z,z^2,z^3)\) for all
+\(z\in\F_{7^m}\), in \(\F_7\oplus\F_{7^m}^3\). In any such relation the
+first coordinate forces equal numbers of terms on both sides, at most three.
+Their first three power sums agree. Newton's identities recover the two
+multisets, proving the relation trivial. This gives 343 labels in
+dimension 10 or 2401 in dimension 13. Holmin et al.\ already excluded
+ranks 3 through 7 for this prime under GRH \cite[\S1.1.1]{HJKMP}.
+
+\newpage
+\sect{4. Finite exclusion and verification of the orders}
+\textbf{The single-trace search.}
+Let \(p=p_1\) and \(U_p=\lfloor\sqrt{4p^7-L}\rfloor\).
+Equation~\eqref{eq:norm} forces \(1\le x\le U_p\). For every odd prime
+\(\ell<p\), primality of \(q>\ell\) and the minimality of \(p\) imply
+\(\chi(\ell)=-1\). Therefore
+\[
+ F_p(x)=x^2-4p^7=-qy^2,\qquad
+ \left(\frac{F_p(x)}{\ell}\right)\in\{0,-1\}.
+\]
+A nonzero square rules out the entire trace for every possible \(y\).
+Zero remains admissible because \(\ell\) can divide \(y\).
+
+For each \(701\le p\le4597\) prime, compute the admissible residue classes
+modulo \(M=3\cdot5\cdot7\cdot11\cdot13\cdot17\cdot19\cdot23=111\,546\,435\).
+Every positive trace left by these predicates occurs exactly once as
+\[
+ x=r+(32j+b)M,\qquad 0\le r<M,\quad j\ge0,\quad 0\le b<32 .
+\]
+For each remaining odd prime through 251 a 32-bit mask tests all lanes
+\(b\) of a tile. Intersect the masks, clip the final tile at \(U_p\),
+and send every retained \(x\) to the host. A separately implemented
+CUDA C++ kernel compiled with NVRTC uses 29 in place of 23 in its wheel,
+constructs residues directly by the Chinese remainder theorem, forms local
+tables from sets of squares and reverses the other test primes. The primary
+kernel is written in PTX. Both kernels use the same mathematical predicate.
+
+\begin{center}
+\begin{tabular}{@{}lrrr@{}}
+\toprule
+Run&Prime rows&Raw trace positions \(\sum_p U_p\)&Retained through 251\\
+\midrule
+PTX through 4597&497&\(1\,622\,545\,300\,159\,089\)&5\\
+NVRTC through 4597&497&\(1\,622\,545\,300\,159\,089\)&5\\
+PTX through 3169&324&\(311\,248\,928\,889\,382\)&0\\
+\bottomrule
+\end{tabular}
+\end{center}
+Both wide runs returned the same five pairs. Each row below exhibits a
+prime \(\ell<p\) and \(c\) such that \(F_p(x)\equiv c^2\not\equiv0\bmod\ell\).
+\begin{center}
+\begin{tabular}{@{}rrrrr@{}}
+\toprule
+\(p\)&\(x\)&\(\ell\)&\(F_p(x)\bmod\ell\)&\(c\)\\
+\midrule
+3209&\(2\,044\,007\,472\,677\)&263&51&83\\
+3853&\(3\,871\,258\,885\,871\)&271&2&96\\
+4129&\(5\,310\,890\,329\,408\)&257&239&53\\
+4133&\(7\,753\,344\,152\,825\)&269&24&37\\
+4561&\(3\,028\,955\,847\,366\)&257&42&82\\
+\bottomrule
+\end{tabular}
+\end{center}
+This exhausts the range supplied by the first Fourier row and proves the
+field assertion. The six-row analytic bound alternatively requires just
+the short run, which took \(63.84\) seconds on a GeForce RTX 2060.
+
+\textbf{Positive entries.}
+For every discriminant in Table~A.7 we enumerated primitive reduced positive
+binary quadratic forms, multiplied the associated ideal lattices to the
+seventh power, and tested that the reduced norm form of each power has
+minimum one. All \(38\cdot7+2\cdot49=364\) ideal classes passed. The
+class numbers and the seven conductor discriminants of Section~1 then give
+the stated group structures and order count.
+
+\newpage
+\textbf{An independent CPU exclusion by two split primes.}
+Let \(p<s\) be the first two split primes, with data \((x,y)\) and \((u,v)\)
+in \eqref{eq:norm}. Write \(g=\gcd(y,v),\ y_0=y/g,\ v_0=v/g\).
+Eliminating \(q\) gives
+\[
+ (v_0x-y_0u)(v_0x+y_0u)=4V,\qquad
+ V=v_0^2p^7-y_0^2s^7\ne0 .
+\]
+The inequality follows because \((p/s)^7\) has odd valuation at \(p\).
+Both factors are even by the trace parities. Thus a necessary solution
+gives positive divisors \(a=|v_0x-y_0u|/2,\ b=(v_0x+y_0u)/2\) of
+\(K=|V|\) with \(ab=K,\ a\le b\). Conversely the candidate traces are
+recovered by exact division from
+\[
+ v_0x=b+\operatorname{sgn}(V)a,\qquad
+ y_0u=b-\operatorname{sgn}(V)a .
+\]
+For each \((p,s,y,v)\) use the rank band to bound \(x,u\) by integer
+square roots. The induced bounds on \(v_0x+y_0u\) restrict
+\(a=2K/(v_0x+y_0u)\). Check \(q\bmod8\) and the compatibility of the
+two equations at \(3,5,7,11,13\). For every remaining tuple, factor \(K\)
+using FLINT, prove each prime factor with \file{is_prime}, multiply back,
+and enumerate every divisor in the interval. Retain integral
+representations with in-band \(q\equiv3\bmod8\). Finally require
+\(({-q}/\ell)=-1\) for every odd prime \(\ell<p\).
+\begin{center}
+\begin{tabular}{@{}rrrrr@{}}
+\toprule
+Rank&Locally admissible tuples&Factorizations&Representations&Survivors\\
+\midrule
+11&542464&493357&13115&0\\
+12&44026&39339&5802&0\\
+13&860&743&655&0\\
+\midrule
+Total&587350&533439&19572&0\\
+\bottomrule
+\end{tabular}
+\end{center}
+The largest \(K\) has 89 bits. The full CPU run took \(877.91\) seconds
+on a six-core Core i7-10750H. As a positive control the same search
+recovers \(q=5923\) from \(p=19,s=29\), with
+\((x,y)=(13128,758)\) and \((u,v)=(2243,3413)\).
+This arithmetic check uses the analytic bounds of Sections~2--3.
+The source, interval witnesses, per-prime records and reproduction commands
+accompany the paper.
+
+\textbf{Acknowledgment.}
+The project was coordinated by nunavipahe60-star in collaboration with
+Claude, Gemini and Codex. The claims ledger records the scope of each review.
+
+\begingroup
+\small
+\begin{thebibliography}{9}
+\setlength{\itemsep}{1pt}
+\bibitem{EKN} A.-S. Elsenhans, J. Kl\"uners and F. Nicolae,
+Imaginary quadratic number fields with class groups of small exponent,
+\emph{Acta Arith.} \textbf{193} (2020), 217--233.
+\href{https://doi.org/10.4064/aa180220-20-3}{doi:10.4064/aa180220-20-3}.
+\bibitem{ARSX} D. Aiken, E. Ross, D. Shvydkoy and H. Xue,
+Boundary CM points and class groups of small exponent, 2026.
+\arxivref{2605.26020}.
+\bibitem{CMQR} E. Carneiro, M. B. Milinovich, E. Quesada-Herrera and
+A. P. Ramos, Fourier optimization, the least quadratic non-residue, and the
+least prime in an arithmetic progression, 2024, revised 2025.
+\arxivref{2404.08380v2}.
+\bibitem{LLS} Y. Lamzouri, X. Li and K. Soundararajan, Conditional bounds
+for the least quadratic non-residue and related problems, corrected version,
+2016. \arxivref{1309.3595v3}.
+\bibitem{HJKMP} S. Holmin, N. Jones, P. Kurlberg, C. McLeman and K. L. Petersen,
+Missing class groups and class number statistics for imaginary quadratic
+fields, 2015. \arxivref{1510.04387}.
+\bibitem{six} nunavipahe60-star, \emph{Class-group exponent six in imaginary
+quadratic fields and orders}, companion repository, Zenodo, 2026.
+\href{https://doi.org/10.5281/zenodo.24489676}{doi:10.5281/zenodo.24489676}.
+\end{thebibliography}
+\endgroup
+\end{document}
